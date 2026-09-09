@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ModCoin — a fictional cryptocurrency market simulation.">
+  <title>ModCoin — Market Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top"><span class="coin">M</span><span>ModCoin</span></a>
+    <nav><a href="#market">Market</a><a href="#drivers">Drivers</a><a href="#history">History</a></nav>
+    <span class="status"><i></i> SIMULATION</span>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="market">
+      <div class="eyebrow">MOD / USD</div>
+      <h1>ModCoin</h1>
+      <p>A fictional market for a fictional coin. Watch the price move.</p>
+      <div class="price-row"><strong id="price">$—</strong><span id="change" class="positive">—</span></div>
+      <span class="updated" id="updated">Loading market data…</span>
+    </section>
+
+    <section class="panel chart-panel">
+      <div class="panel-head"><div><h2>Price history</h2><span>Simulated market price in USD</span></div><div class="ranges"><button data-range="7">7D</button><button data-range="30">30D</button><button data-range="90">90D</button><button data-range="365">1Y</button><button class="active" data-range="all">ALL</button></div></div>
+      <div class="chart-wrap"><canvas id="priceChart"></canvas></div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat"><span>Market cap</span><strong id="marketCap">—</strong></article>
+      <article class="stat"><span>24h volume</span><strong id="volume">—</strong></article>
+      <article class="stat"><span>All-time high</span><strong id="ath">—</strong></article>
+      <article class="stat"><span>All-time low</span><strong id="atl">—</strong></article>
+    </section>
+
+    <section id="drivers" class="section">
+      <div class="section-title"><span class="eyebrow">SIMULATION MODEL</span><h2>What moves MOD?</h2></div>
+      <div class="driver-grid">
+        <article class="driver"><span class="driver-icon">01</span><h3>Time of day</h3><p>Intraday activity follows a repeating synthetic cycle, making the market feel alive without using real financial data.</p><div class="meter"><span id="timeMeter"></span></div></article>
+        <article class="driver"><span class="driver-icon">02</span><h3>Creator activity</h3><p>A fictional creator-attention index introduces larger swings when simulated attention is high.</p><div class="meter"><span id="creatorMeter"></span></div></article>
+        <article class="driver"><span class="driver-icon">03</span><h3>Market noise</h3><p>Deterministic pseudo-random noise prevents the chart from becoming a perfectly predictable curve.</p><div class="meter"><span id="noiseMeter"></span></div></article>
+      </div>
+    </section>
+
+    <section id="history" class="panel history-panel">
+      <div class="panel-head"><div><h2>Daily history</h2><span>Most recent simulated observations</span></div></div>
+      <div class="table-scroll"><table><thead><tr><th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Volume</th></tr></thead><tbody id="historyBody"></tbody></table></div>
+    </section>
+  </main>
+
+  <footer><span>ModCoin © 2026</span><span>Fictional cryptocurrency simulation. MOD has no monetary value.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
